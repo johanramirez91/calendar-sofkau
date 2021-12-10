@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.time.LocalDate;
 import java.util.Objects;
 
-@Document
+@Document(collection = "calendar")
 public final class ProgramDate {
     @Id
     private String id;
