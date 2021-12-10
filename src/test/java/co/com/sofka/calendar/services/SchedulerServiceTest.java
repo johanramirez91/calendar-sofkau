@@ -41,6 +41,7 @@ class SchedulerServiceTest {
         Mockito.when(repository.findById(programId)).thenReturn(Mono.just(program));
         //TODO: hacer una subscripción de el servicio reactivo
         Flux<ProgramDate> response = schedulerService.generateCalendar(programId, startDate);
+        response.subscribe(); //Suscripción al servicio.
 
         Assertions.assertEquals(13, response.size());//TODO: hacer de otro modo
         Assertions.assertEquals(getSnapResult(), new Gson().toJson(response));//TODO: hacer de otro modo
